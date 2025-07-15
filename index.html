@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deli Snacks - Frutos Secos y Aliños Naturales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="assets/images/logochico.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'green-primary': '#22c55e',
+                        'green-secondary': '#16a34a',
+                        'green-light': '#dcfce7'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%),
+                url('assets/images/banner.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg h1,
+        .hero-bg p {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-bg a.inline-flex {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .lucas-cabeza{
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%),
+                url('assets/images/lucas.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animaciones de fondo */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-nut {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: floatNut 15s infinite linear;
+        }
+
+        .floating-leaf {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.4;
+            animation: floatLeaf 12s infinite linear;
+        }
+
+        .floating-spice {
+            position: absolute;
+            font-size: 1.2rem;
+            opacity: 0.3;
+            animation: floatSpice 18s infinite linear;
+        }
+
+        @keyframes floatNut {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.3;
+            }
+
+            90% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes floatLeaf {
+            0% {
+                transform: translateY(100vh) translateX(0px) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.4;
+            }
+
+            25% {
+                transform: translateY(75vh) translateX(20px) rotate(90deg);
+            }
+
+            50% {
+                transform: translateY(50vh) translateX(-10px) rotate(180deg);
+            }
+
+            75% {
+                transform: translateY(25vh) translateX(15px) rotate(270deg);
+            }
+
+            90% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(-100px) translateX(0px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes floatSpice {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateY(50vh) rotate(180deg) scale(1.2);
+            }
+
+            90% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Animación de pulso para elementos destacados */
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Fondo animado para secciones */
+        .animated-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/56912345678?text=Hola%20Deli%20Snack,%20me%20interesa%20conocer%20más%20sobre%20sus%20productos"
+        class="whatsapp-float" target="_blank">
+        <div class="flex items-center justify-center h-full">📱</div>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center justify-center w-full md:w-auto">
+                    <a href="#inicio"> <img src="assets/images/logo.png" alt="Logo de la empresa" class="w-12 h-12 object-cover" /></a>
+                     
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#inicio"
+                            class="text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium transition">Inicio</a>
+                        <a href="#nosotros"
+                            class="text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium transition">Nosotros</a>
+                        <a href="#productos"
+                            class="text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium transition">Productos</a>
+                        <a href="#testimonios"
+                            class="text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium transition">Testimonios</a>
+                        <a href="#contacto"
+                            class="text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium transition">Contacto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg py-20">
+        <!-- Elementos flotantes animados-->
+        <div class="floating-elements">
+            <div class="floating-nut" style="left: 10%; animation-delay: 0s;">🥜</div>
+            <div class="floating-leaf" style="left: 20%; animation-delay: 0s;">🍃</div>
+            <div class="floating-spice" style="left: 30%; animation-delay: 0s;">🌿</div>
+            <div class="floating-nut" style="left: 40%; animation-delay: 0s;">🌰</div>
+            <div class="floating-leaf" style="left: 50%; animation-delay: 0s;">🌱</div>
+            <div class="floating-spice" style="left: 60%; animation-delay: 0s;">🌶️</div>
+            <div class="floating-nut" style="left: 70%; animation-delay: 0s;">🥜</div>
+            <div class="floating-leaf" style="left: 80%; animation-delay: 0s;">🍃</div>
+            <div class="floating-spice" style="left: 90%; animation-delay: 0s;">🌿</div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                    Bienvenidos a <span class="text-green-primary">Deli Snacks</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">
+                    Los mejores frutos secos y aliños naturales de Chile. Calidad premium, sabor auténtico y nutrición
+                    en cada bocado.
+                </p>
+                <a href="https://wa.me/56912345678?text=Hola%20Deli%20Snack,%20quiero%20hacer%20un%20pedido"
+                    class="inline-flex items-center bg-green-primary hover:bg-green-secondary text-white font-semibold py-4 px-8 rounded-full text-lg transition transform hover:scale-105 shadow-lg pulse-animation">
+                    📱 Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos -->
+    <section id="nosotros" class="py-20 bg-white animated-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">¿Quiénes Somos?</h2>
+                <div class="w-24 h-1 bg-green-primary mx-auto mb-8"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Somos una pequeña empresa familiar ubicada en Quellón, Región de Los Lagos, Chile, dedicada a la
+                        venta de frutos secos y aliños naturales para darle sabor y salud a tus comidas. Nuestro
+                        emprendimiento nace del cariño por los productos caseros y el deseo de compartir sabores
+                        auténticos, siempre con un sello local.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Recién estamos comenzando este camino, y lo hacemos con el corazón y la compañía de Lucas,
+                        nuestro fiel perrito salchicha que da vida a nuestro logo y a nuestra identidad. En cada
+                        producto que ofrecemos, hay compromiso con la calidad, cercanía y confianza.
+
+                        Gracias por apoyar a las pymes chilenas. ¡Te invitamos a descubrir nuestros sabores!
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="lucas-cabeza rounded-full w-64 h-64 mx-auto flex items-center justify-center pulse-animation">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section id="productos" class="py-20 bg-gray-50 animated-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Nuestros Productos</h2>
+                <div class="w-24 h-1 bg-green-primary mx-auto mb-8"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Descubre nuestra selección de productos premium, perfectos para una alimentación saludable y
+                    sabrosa.
+                </p>
+            </div>
+
+            <!-- Frutos Secos -->
+            <div class="mb-16">
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">🥜 Frutos Secos</h3>
+                    <p class="text-gray-600 max-w-xl mx-auto">
+                        Selección premium de frutos secos, tostados al punto perfecto para conservar todos sus
+                        nutrientes y sabor.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Mix Energético -->
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <span class="text-6xl">🥜</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Mix Energético</h4>
+                            <p class="text-gray-600 mb-4">
+                                Mezcla perfecta de almendras, nueces, pasas y arándanos. Ideal para deportistas y snack
+                                saludable.
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$4.500 / 250g</div>
+                            <button onclick="contactarWhatsApp('Mix Energético')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Almendras Tostadas -->
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <span class="text-6xl">🌰</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Almendras Tostadas</h4>
+                            <p class="text-gray-600 mb-4">
+                                Almendras premium tostadas al punto perfecto. Crujientes, sabrosas y llenas de
+                                nutrientes.
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$6.200 / 300g</div>
+                            <button onclick="contactarWhatsApp('Almendras Tostadas')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aliños -->
+            <div>
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">🌿 Aliños Naturales</h3>
+                    <p class="text-gray-600 max-w-xl mx-auto">
+                        Mezclas artesanales de especias y hierbas naturales para realzar el sabor de tus comidas
+                        favoritas.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Aliño Mediterráneo -->
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <span class="text-6xl">🌿</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Aliño Mediterráneo</h4>
+                            <p class="text-gray-600 mb-4">
+                                Mezcla de hierbas mediterráneas naturales. Perfecto para carnes, ensaladas y pastas.
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$3.800 / 100g</div>
+                            <button onclick="contactarWhatsApp('Aliño Mediterráneo')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Aliño Picante -->
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <span class="text-6xl">🌶️</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Aliño Picante</h4>
+                            <p class="text-gray-600 mb-4">
+                                Blend de especias picantes naturales. Dale el toque perfecto a tus comidas favoritas.
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$4.200 / 100g</div>
+                            <button onclick="contactarWhatsApp('Aliño Picante')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!--Porque elegirnos-->
+    <section class="py-20 bg-gradient-to-br from-green-50 to-blue-50 animated-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">¿Por Qué Elegir Deli Snack?</h2>
+                <div class="w-24 h-1 bg-green-primary mx-auto mb-8"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Somos tu mejor opción para frutos secos y aliños naturales en Chile. Calidad, confianza y servicio garantizado.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Envíos a Todo Chile -->
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="bg-green-light rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <span class="text-3xl">🚚</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Envíos a Todo Chile</h3>
+                    <p class="text-gray-600 mb-4">
+                        Llegamos desde Arica a Punta Arenas. Envío rápido y seguro a tu puerta.
+                    </p>
+                    <div class="text-green-primary font-bold">2-5 días hábiles</div>
+                </div>
+
+                <!-- Calidad Premium -->
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="bg-green-light rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <span class="text-3xl">⭐</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Calidad Premium</h3>
+                    <p class="text-gray-600 mb-4">
+                        Productos seleccionados uno a uno. Solo lo mejor llega a tu mesa.
+                    </p>
+                    <div class="text-green-primary font-bold">100% Natural</div>
+                </div>
+
+                <!-- Seguridad Garantizada -->
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="bg-green-light rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <span class="text-3xl">🛡️</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Seguro y Confiable</h3>
+                    <p class="text-gray-600 mb-4">
+                        Empaques herméticos, trazabilidad completa y garantía de frescura.
+                    </p>
+                    <div class="text-green-primary font-bold">Certificado HACCP</div>
+                </div>
+
+                <!-- Experiencia -->
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="bg-green-light rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <span class="text-3xl">🏆</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Top 10 en Chile</h3>
+                    <p class="text-gray-600 mb-4">
+                        Uno de los mejores frutos sacados naturalmente de nuestras tierras chilotas.
+                    </p>
+                    <div class="text-green-primary font-bold">+5000 Clientes</div>
+                </div>
+            </div>
+
+            <!-- Estadísticas y Garantías -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="text-4xl font-bold text-green-primary mb-2">15</div>
+                        <div class="text-gray-600">Regiones de Chile</div>
+                        <div class="text-sm text-gray-500 mt-1">Cobertura completa</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-green-primary mb-2">98%</div>
+                        <div class="text-gray-600">Satisfacción del Cliente</div>
+                        <div class="text-sm text-gray-500 mt-1">Basado en reseñas</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-green-primary mb-2">24h</div>
+                        <div class="text-gray-600">Tiempo de Despacho</div>
+                        <div class="text-sm text-gray-500 mt-1">Pedidos antes 14:00</div>
+                    </div>
+                </div>
+
+                <div class="mt-12 grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Nuestras Garantías</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <span class="text-green-primary text-xl mr-3">✓</span>
+                                <span class="text-gray-700">Productos 100% frescos y naturales</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-primary text-xl mr-3">✓</span>
+                                <span class="text-gray-700">Empaques sellados al vacío para máxima frescura</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-primary text-xl mr-3">✓</span>
+                                <span class="text-gray-700">Trazabilidad completa desde origen</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-primary text-xl mr-3">✓</span>
+                                <span class="text-gray-700">Garantía de satisfacción o devolución</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-primary text-xl mr-3">✓</span>
+                                <span class="text-gray-700">Certificaciones sanitarias al día</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-light rounded-2xl p-8">
+                            <div class="text-6xl mb-4">🇨🇱</div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Cobertura Nacional</h4>
+                            <p class="text-gray-600 mb-4">
+                                Desde Quellon, llevamos nuestros productos a todo Chile con la misma calidad y frescura.
+                            </p>
+                            <div class="text-sm text-gray-500">
+                                <div>• Chiloe: 1-3 días</div>
+                                <div>• Santiago: 4-8 días</div>
+                                <div>• Zona Extrema: 8-12 días</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="py-20 bg-white animated-bg" style="position: relative; overflow: hidden;">
+        <!-- Elementos flotantes para testimonios -->
+        <div class="floating-elements">
+            <div class="floating-leaf" style="left: 5%; animation-delay: 1s;">⭐</div>
+            <div class="floating-spice" style="left: 15%; animation-delay: 3s;">🌿</div>
+            <div class="floating-leaf" style="left: 85%; animation-delay: 5s;">⭐</div>
+            <div class="floating-spice" style="left: 95%; animation-delay: 7s;">🍃</div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Lo Que Dicen Nuestros Clientes</h2>
+                <div class="w-24 h-1 bg-green-primary mx-auto mb-8"></div>
+            </div>
+
+            <!-- Carrusel de testimonios -->
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Contenedor de testimonios -->
+                <div class="testimonial-container relative overflow-hidden">
+                    <!-- Testimonio 1 -->
+                    <div class="testimonial-slide bg-green-light rounded-xl p-8 text-center transition-all duration-500 ease-in-out"
+                        data-slide="0">
+                        <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                        <p class="text-gray-700 mb-6 italic text-lg">
+                            "Los mejores frutos secos que he probado. El mix energético es perfecto para mis
+                            entrenamientos. Calidad excepcional."
+                        </p>
+                        <div class="font-semibold text-gray-800 text-xl">María González</div>
+                        <div class="text-sm text-gray-600">Deportista</div>
+                    </div>
+
+                    <!-- Testimonio 2 -->
+                    <div class="testimonial-slide bg-green-light rounded-xl p-8 text-center transition-all duration-500 ease-in-out opacity-0 absolute top-0 left-0 w-full"
+                        data-slide="1">
+                        <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                        <p class="text-gray-700 mb-6 italic text-lg">
+                            "El aliño mediterráneo transformó mis ensaladas. Sabor auténtico y natural. Definitivamente
+                            seguiré comprando."
+                        </p>
+                        <div class="font-semibold text-gray-800 text-xl">Carlos Mendoza</div>
+                        <div class="text-sm text-gray-600">Chef</div>
+                    </div>
+
+                    <!-- Testimonio 3 -->
+                    <div class="testimonial-slide bg-green-light rounded-xl p-8 text-center transition-all duration-500 ease-in-out opacity-0 absolute top-0 left-0 w-full"
+                        data-slide="2">
+                        <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                        <p class="text-gray-700 mb-6 italic text-lg">
+                            "Excelente atención y productos frescos. Las almendras tostadas son adictivas. Recomiendo
+                            100% Deli Snack."
+                        </p>
+                        <div class="font-semibold text-gray-800 text-xl">Ana Rodríguez</div>
+                        <div class="text-sm text-gray-600">Nutricionista</div>
+                    </div>
+
+                    <!-- Testimonio 4 -->
+                    <div class="testimonial-slide bg-green-light rounded-xl p-8 text-center transition-all duration-500 ease-in-out opacity-0 absolute top-0 left-0 w-full"
+                        data-slide="3">
+                        <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                        <p class="text-gray-700 mb-6 italic text-lg">
+                            "Pedí para mi oficina y todos quedaron encantados. Los aliños picantes son increíbles.
+                            Servicio rápido y confiable."
+                        </p>
+                        <div class="font-semibold text-gray-800 text-xl">Roberto Silva</div>
+                        <div class="text-sm text-gray-600">Empresario</div>
+                    </div>
+
+                    <!-- Testimonio 5 -->
+                    <div class="testimonial-slide bg-green-light rounded-xl p-8 text-center transition-all duration-500 ease-in-out opacity-0 absolute top-0 left-0 w-full"
+                        data-slide="4">
+                        <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                        <p class="text-gray-700 mb-6 italic text-lg">
+                            "Como nutricionista, recomiendo Deli Snack a todos mis pacientes. Productos naturales, sin
+                            aditivos y súper frescos."
+                        </p>
+                        <div class="font-semibold text-gray-800 text-xl">Dra. Patricia Morales</div>
+                        <div class="text-sm text-gray-600">Nutricionista</div>
+                    </div>
+                </div>
+
+                <!-- Indicadores -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-green-primary transition-all duration-300"
+                        data-slide="0"></button>
+                    <button
+                        class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-green-secondary transition-all duration-300"
+                        data-slide="1"></button>
+                    <button
+                        class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-green-secondary transition-all duration-300"
+                        data-slide="2"></button>
+                    <button
+                        class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-green-secondary transition-all duration-300"
+                        data-slide="3"></button>
+                    <button
+                        class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-green-secondary transition-all duration-300"
+                        data-slide="4"></button>
+                </div>
+
+                <!-- Botones de navegación -->
+                <button
+                    class="testimonial-prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-green-primary text-green-primary hover:text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-all duration-300 z-10">
+                    ‹
+                </button>
+                <button
+                    class="testimonial-next absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-green-primary text-green-primary hover:text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-all duration-300 z-10">
+                    ›
+                </button>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-20 bg-gray-50 animated-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Contáctanos</h2>
+                <div class="w-24 h-1 bg-green-primary mx-auto mb-8"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    ¿Tienes preguntas o quieres hacer un pedido? Estamos aquí para ayudarte.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Información de Contacto -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Información de Contacto</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-4">📱</span>
+                            <div>
+                                <div class="font-semibold text-gray-800">WhatsApp</div>
+                                <div class="text-gray-600">+56 9 1234 5678</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-4">📧</span>
+                            <div>
+                                <div class="font-semibold text-gray-800">Email</div>
+                                <div class="text-gray-600">contacto@delisnack.cl</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-4">📍</span>
+                            <div>
+                                <div class="font-semibold text-gray-800">Ubicación</div>
+                                <div class="text-gray-600">Quellon,los Lagos, Chile</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-4">🕒</span>
+                            <div>
+                                <div class="font-semibold text-gray-800">Horario</div>
+                                <div class="text-gray-600">Lun - Vie: 9:00 - 18:00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <a href="https://wa.me/56912345678?text=Hola%20Deli%20Snack,%20me%20gustaría%20hacer%20una%20consulta"
+                            class="inline-flex items-center bg-green-primary hover:bg-green-secondary text-white font-semibold py-3 px-6 rounded-lg text-lg transition transform hover:scale-105">
+                            📱 Escribir por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Formulario de Contacto -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Envíanos un Mensaje</h3>
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <!--<div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                            <p class="text-yellow-800 text-sm">
+                                <strong>Demo:</strong> Este formulario es solo para demostración. Para contacto real, usa WhatsApp.
+                            </p>
+                            
+                        </div>-->
+                        <form onsubmit="enviarFormulario(event)">
+                            <div class="mb-4">
+                                <label for="nombre" class="block text-gray-700 font-semibold mb-2">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-primary focus:border-transparent">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-primary focus:border-transparent">
+                            </div>
+                            <div class="mb-4">
+                                <label for="telefono" class="block text-gray-700 font-semibold mb-2">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-primary focus:border-transparent">
+                            </div>
+                            <div class="mb-6">
+                                <label for="mensaje" class="block text-gray-700 font-semibold mb-2">Mensaje</label>
+                                <textarea id="mensaje" name="mensaje" rows="4" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-primary focus:border-transparent"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-3 px-6 rounded-lg transition">
+                                Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center ">
+                <div class="text-3xl font-bold  text-green-primary mb-4">
+                    <img src="assets/images/logo.png" alt="Logo de la empresa" class="w-24 h-24 object-cover mx-auto" />
+                </div>
+                <p class="text-gray-300 mb-6">Frutos secos y aliños naturales de calidad premium</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#inicio" class="text-gray-300 hover:text-green-primary transition">Inicio</a>
+                    <a href="#nosotros" class="text-gray-300 hover:text-green-primary transition">Nosotros</a>
+                    <a href="#productos" class="text-gray-300 hover:text-green-primary transition">Productos</a>
+                    <a href="#contacto" class="text-gray-300 hover:text-green-primary transition">Contacto</a>
+                </div>
+                <div class="border-t border-gray-700 pt-8">
+                    <p class="text-gray-400">&copy; 2025 Deli Snack. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Función para contactar por WhatsApp con producto específico
+        function contactarWhatsApp(producto) {
+            const mensaje = `Hola Deli Snack, me interesa el producto: ${producto}. ¿Podrían darme más información?`;
+            const url = `https://wa.me/56912345678?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+
+        // Función para enviar formulario (demo)
+        function enviarFormulario(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            alert(`¡Gracias ${nombre}! Tu mensaje ha sido recibido (demo). Para contacto real, usa WhatsApp.`);
+
+            // Limpiar formulario
+            document.getElementById('nombre').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('telefono').value = '';
+            document.getElementById('mensaje').value = '';
+        }
+
+        // Carrusel de testimonios
+        let currentTestimonial = 0;
+        const totalTestimonials = 5;
+        let testimonialInterval;
+
+        function showTestimonial(index) {
+            // Ocultar todos los testimonios
+            document.querySelectorAll('.testimonial-slide').forEach((slide, i) => {
+                if (i === index) {
+                    slide.style.opacity = '1';
+                    slide.style.position = 'relative';
+                } else {
+                    slide.style.opacity = '0';
+                    slide.style.position = 'absolute';
+                }
+            });
+
+            // Actualizar indicadores
+            document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-green-primary');
+                } else {
+                    dot.classList.remove('bg-green-primary');
+                    dot.classList.add('bg-gray-300');
+                }
+            });
+
+            currentTestimonial = index;
+        }
+
+        function nextTestimonial() {
+            const next = (currentTestimonial + 1) % totalTestimonials;
+            showTestimonial(next);
+        }
+
+        function prevTestimonial() {
+            const prev = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+            showTestimonial(prev);
+        }
+
+        function startTestimonialCarousel() {
+            testimonialInterval = setInterval(nextTestimonial, 5000); // Cambiar cada 5 segundos
+        }
+
+        function stopTestimonialCarousel() {
+            clearInterval(testimonialInterval);
+        }
+
+        // Inicializar carrusel cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function () {
+            // Configurar eventos de los botones de navegación
+            document.querySelector('.testimonial-next').addEventListener('click', () => {
+                stopTestimonialCarousel();
+                nextTestimonial();
+                startTestimonialCarousel();
+            });
+
+            document.querySelector('.testimonial-prev').addEventListener('click', () => {
+                stopTestimonialCarousel();
+                prevTestimonial();
+                startTestimonialCarousel();
+            });
+
+            // Configurar eventos de los indicadores
+            document.querySelectorAll('.testimonial-dot').forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    stopTestimonialCarousel();
+                    showTestimonial(index);
+                    startTestimonialCarousel();
+                });
+            });
+
+            // Pausar carrusel al pasar el mouse sobre los testimonios
+            const testimonialContainer = document.querySelector('.testimonial-container');
+            testimonialContainer.addEventListener('mouseenter', stopTestimonialCarousel);
+            testimonialContainer.addEventListener('mouseleave', startTestimonialCarousel);
+
+            // Iniciar el carrusel automático
+            startTestimonialCarousel();
+        });
+
+        // Smooth scrolling para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'95f5b174d3a4e9b6',t:'MTc1MjU0NTEwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
