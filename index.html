@@ -46,7 +46,8 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
         }
-        .lucas-cabeza{
+
+        .lucas-cabeza {
             background: linear-gradient(135deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%),
                 url('assets/images/lucas.jpg');
             background-size: cover;
@@ -253,8 +254,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center justify-center w-full md:w-auto">
-                    <a href="#inicio"> <img src="assets/images/logo.png" alt="Logo de la empresa" class="w-12 h-12 object-cover" /></a>
-                     
+                    <a href="#inicio"> <img src="assets/images/logo.png" alt="Logo de la empresa"
+                            class="w-12 h-12 object-cover" /></a>
+
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
@@ -360,38 +362,107 @@
                         nutrientes y sabor.
                     </p>
                 </div>
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                     <!-- Mix Energético -->
                     <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <!-- Imagen -->
                         <div class="bg-green-light h-48 flex items-center justify-center">
-                            <span class="text-6xl">🥜</span>
+                            <img class="h-full object-cover" src="assets/images/manijapones.jpg" alt="manijapones">
                         </div>
+
+                        <!-- Contenido -->
                         <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Mix Energético</h4>
-                            <p class="text-gray-600 mb-4">
-                                Mezcla perfecta de almendras, nueces, pasas y arándanos. Ideal para deportistas y snack
-                                saludable.
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Maní Japonés</h4>
+                            <p class="text-gray-600 mb-3">
+                                Perfecto maní japonés de un sabor único, ideal para todos.
                             </p>
-                            <div class="text-green-primary font-bold text-lg mb-4">$4.500 / 250g</div>
-                            <button onclick="contactarWhatsApp('Mix Energético')"
+                            <div class="text-green-600 font-bold text-lg mb-4">$3.500 / 70g</div>
+                            <button onclick="contactarWhatsApp('Maní Japonés')"
                                 class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
                                 Pedir Ahora
                             </button>
                         </div>
                     </div>
 
+
                     <!-- Almendras Tostadas -->
                     <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
                         <div class="bg-green-light h-48 flex items-center justify-center">
-                            <span class="text-6xl">🌰</span>
+                            <img class="h-full object-cover" src="assets/images/maniconfitado.jpg" alt="mani confitado">
                         </div>
                         <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Almendras Tostadas</h4>
-                            <p class="text-gray-600 mb-4">
-                                Almendras premium tostadas al punto perfecto. Crujientes, sabrosas y llenas de
-                                nutrientes.
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">mani confitado</h4>
+                            <p class="text-gray-600 mb-3">
+                                confitado con ricos frutos de arandano ricos para el dia a dia
                             </p>
-                            <div class="text-green-primary font-bold text-lg mb-4">$6.200 / 300g</div>
+                            <div class="text-green-600 font-bold text-lg mb-4">$2.500 / 150g</div>
+                            <button onclick="contactarWhatsApp('Almendras Tostadas')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <img class="h-full objet-cover" src="assets/images/manijaponesmerken.jpg" alt="mani japones con merken">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Mani Japones</h4>
+                            <p class="text-gray-600 mb-3">
+                                Mani japones con merken para los amantes del picante con la mezcla de mani perfectos
+                                para compartir
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$2.500 / 150g</div>
+                            <button onclick="contactarWhatsApp('Almendras Tostadas')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <img class="h-full object-cover" src="assets/images/mixfrutos.jpg" alt="mix frutos secos">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Mix Frutos secos</h4>
+                            <p class="text-gray-600 mb-3">
+                                frutos secos sin sal perfectos para los deportistas, increibles para la mañana
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$2.500 / 70g</div>
+                            <button onclick="contactarWhatsApp('Almendras Tostadas')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <img class="h-full object-cover" src="assets/images/mixgranola.jpg" alt="mix granola" />
+                        </div>
+                        <div class=" p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Mix granola</h4>
+                            <p class="text-gray-600 mb-3">
+                                mix de granola perfecto para deportistas ideal para la mañana de energia
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$2.500 / 150g</div>
+                            <button onclick="contactarWhatsApp('Almendras Tostadas')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <img class="h-full object-cover" src="assets/images/manijaponesmerken2.jpg" alt="mani japones con merken">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Mani Japones</h4>
+                            <p class="text-gray-600 mb-3">
+                                Mani japones con merken para los amantes del picante perfecto para comer individual
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$2.500 / 70g</div>
                             <button onclick="contactarWhatsApp('Almendras Tostadas')"
                                 class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
                                 Pedir Ahora
@@ -410,18 +481,18 @@
                         favoritas.
                     </p>
                 </div>
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <!-- Aliño Mediterráneo -->
                     <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
                         <div class="bg-green-light h-48 flex items-center justify-center">
-                            <span class="text-6xl">🌿</span>
+                            <img class="h-full object-cover" src="assets/images/ajicolor.jpg" alt="aji color">
                         </div>
                         <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Aliño Mediterráneo</h4>
-                            <p class="text-gray-600 mb-4">
-                                Mezcla de hierbas mediterráneas naturales. Perfecto para carnes, ensaladas y pastas.
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Aji color </h4>
+                            <p class="text-gray-600 mb-3">
+                                prepara tus comidas con un toque de picante para calentar la lengua 
                             </p>
-                            <div class="text-green-primary font-bold text-lg mb-4">$3.800 / 100g</div>
+                            <div class="text-green-primary font-bold text-lg mb-4">$1.500 / 22g</div>
                             <button onclick="contactarWhatsApp('Aliño Mediterráneo')"
                                 class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
                                 Pedir Ahora
@@ -432,14 +503,99 @@
                     <!-- Aliño Picante -->
                     <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
                         <div class="bg-green-light h-48 flex items-center justify-center">
-                            <span class="text-6xl">🌶️</span>
+                            <img class="h-full object-cover" src="assets/images/ajo.jpg" alt="ajo">
                         </div>
                         <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Aliño Picante</h4>
-                            <p class="text-gray-600 mb-4">
-                                Blend de especias picantes naturales. Dale el toque perfecto a tus comidas favoritas.
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Ajo en polvo</h4>
+                            <p class="text-gray-600 mb-3">
+                                Ajo en polvo ideal para la cosina llena de sabor tus carnes
                             </p>
-                            <div class="text-green-primary font-bold text-lg mb-4">$4.200 / 100g</div>
+                            <div class="text-green-primary font-bold text-lg mb-4">$1.500 / 22g</div>
+                            <button onclick="contactarWhatsApp('Aliño Picante')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <img class="h-full object-cover" src="assets/images/oregano.jpg" alt="oregano">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Oregano</h4>
+                            <p class="text-gray-600 mb-3">
+                                Perfecto oregano para sasonar todas tus comidas de la manera que quieras
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$1.000 / 15g</div>
+                            <button onclick="contactarWhatsApp('Aliño Picante')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <img class="h-full object-cover" src="assets/images/romero.jpg" alt="romero">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Romero</h4>
+                            <p class="text-gray-600 mb-3">
+                                Para darle un toque deli a tus comidas
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$1.500 / 22g</div>
+                            <button onclick="contactarWhatsApp('Aliño Picante')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <img class="h-full object-cover" src="assets/images/merkenahumado.jpg" alt="merken">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Merken</h4>
+                            <p class="text-gray-600 mb-3">
+                                Delicia de merken ahumado llena tus comidas para que queden deli
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$1.500 / 22g</div>
+                            <button onclick="contactarWhatsApp('Aliño Picante')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <img class="h-full object-cover" src="assets/images/laurel.jpg" alt="laurel">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Laurel</h4>
+                            <p class="text-gray-600 mb-3">
+                                Laurel rico especial para los fideos llenos de sabor 
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$1.500 / 22g</div>
+                            <button onclick="contactarWhatsApp('Aliño Picante')"
+                                class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
+                                Pedir Ahora
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-green-light h-48 flex items-center justify-center">
+                            <img class="h-full object-cover" src="assets/images/curry.jpg" alt="curry">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Curry</h4>
+                            <p class="text-gray-600 mb-3">
+                                Curry ideal para tus comidas prueba tus comidas con mejor gusto
+                            </p>
+                            <div class="text-green-primary font-bold text-lg mb-4">$1.500 / 22g</div>
                             <button onclick="contactarWhatsApp('Aliño Picante')"
                                 class="w-full bg-green-primary hover:bg-green-secondary text-white font-semibold py-2 px-4 rounded-lg transition">
                                 Pedir Ahora
@@ -450,20 +606,22 @@
             </div>
         </div>
     </section>
-     <!--Porque elegirnos-->
+    <!--Porque elegirnos-->
     <section class="py-20 bg-gradient-to-br from-green-50 to-blue-50 animated-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">¿Por Qué Elegir Deli Snack?</h2>
                 <div class="w-24 h-1 bg-green-primary mx-auto mb-8"></div>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Somos tu mejor opción para frutos secos y aliños naturales en Chile. Calidad, confianza y servicio garantizado.
+                    Somos tu mejor opción para frutos secos y aliños naturales en Chile. Calidad, confianza y servicio
+                    garantizado.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                 <!-- Envíos a Todo Chile -->
-                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div
+                    class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                     <div class="bg-green-light rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                         <span class="text-3xl">🚚</span>
                     </div>
@@ -475,7 +633,8 @@
                 </div>
 
                 <!-- Calidad Premium -->
-                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div
+                    class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                     <div class="bg-green-light rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                         <span class="text-3xl">⭐</span>
                     </div>
@@ -487,7 +646,8 @@
                 </div>
 
                 <!-- Seguridad Garantizada -->
-                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div
+                    class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                     <div class="bg-green-light rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                         <span class="text-3xl">🛡️</span>
                     </div>
@@ -499,7 +659,8 @@
                 </div>
 
                 <!-- Experiencia -->
-                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div
+                    class="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                     <div class="bg-green-light rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                         <span class="text-3xl">🏆</span>
                     </div>
@@ -688,7 +849,7 @@
         </div>
     </section>
 
-   
+
 
     <!-- Contacto -->
     <section id="contacto" class="py-20 bg-gray-50 animated-bg">
